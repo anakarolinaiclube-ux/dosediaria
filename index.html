@@ -2,283 +2,278 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Dose Diária - Histórias que Mudam o Jogo</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novos Logos - Dose Diária de Motivação</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
-        :root {
-            /* Fundo WhatsApp mantido */
-            --bg-body: #E5DDD5; 
-            --accent-red: #E50914; 
-            --accent-hover: #ff1f2a;
-            --text-main: #111111; 
-            --text-light: #4a555c; 
-            --radius-lg: 24px;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: var(--bg-body);
-            background-image: url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png');
-            background-repeat: repeat;
-            background-attachment: fixed;
-            color: var(--text-main);
-            min-height: 100vh;
-            min-height: 100dvh; 
+            background-color: #E5DDD5; 
             display: flex;
-            flex-direction: column;
-        }
-
-        /* --- CABEÇALHO FLUTUANTE --- */
-        header {
-            padding: 20px;
-            text-align: center;
-            background: transparent; 
-            flex-shrink: 0; 
-        }
-        .logo { 
-            font-weight: 800; 
-            letter-spacing: -1px; 
-            font-size: 1.6rem; 
-            text-transform: uppercase; 
-            color: #111111; 
-            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
-        }
-        .logo span { 
-            color: var(--accent-red); 
-            font-weight: 800; 
-        }
-
-        .app-container {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            padding: 10px 20px 40px 20px;
+            flex-wrap: wrap;
+            gap: 30px;
+            padding: 40px;
             justify-content: center;
         }
 
-        .screen {
-            width: 100%;
-            max-width: 420px;
+        .card {
+            background: #FFFFFF;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
             text-align: center;
-            margin: auto; 
+            width: 350px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
-        /* --- TEXTOS DA LANDING PAGE --- */
-        .badge {
-            display: inline-block;
-            padding: 6px 16px;
-            background: rgba(229, 9, 20, 0.1);
-            color: var(--accent-red);
-            border: 1px solid rgba(229, 9, 20, 0.3);
-            border-radius: 50px;
-            font-size: 0.75rem;
-            font-weight: 700;
+        .card-title {
+            font-size: 0.8rem;
+            color: #888;
+            margin-bottom: 25px;
             text-transform: uppercase;
-            margin-bottom: 20px;
             letter-spacing: 1px;
-            box-shadow: 0 4px 10px rgba(229, 9, 20, 0.05);
+            font-weight: 600;
         }
 
-        h1 { 
-            font-size: 1.6rem; 
-            margin-bottom: 15px; 
-            line-height: 1.25; 
-            font-weight: 800; 
+        /* =========================================
+           OPÇÃO 1: Monograma em Bloco (DD + Texto)
+           Destaca a sigla "DD" gigante ao lado do texto
+        ========================================= */
+        .logo-v1 {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-transform: uppercase;
+            color: #111111;
         }
-        
-        .desc { 
-            color: var(--text-light); 
-            margin-bottom: 30px; 
-            font-size: 1.05rem; 
-            line-height: 1.5; 
-            font-weight: 400; 
-            padding: 0 5px;
+        .logo-v1 .dd {
+            font-weight: 900;
+            font-size: 2.8rem;
+            line-height: 1;
+            color: #E50914; /* Vermelho */
+            letter-spacing: -3px;
         }
-
-        /* --- CARD DE BENEFÍCIOS (Glassmorphism) --- */
-        .glass-card {
-            background: rgba(255, 255, 255, 0.15); 
-            backdrop-filter: blur(16px); 
-            -webkit-backdrop-filter: blur(16px); 
-            padding: 30px 25px;
-            border-radius: var(--radius-lg);
-            border: 1px solid rgba(255, 255, 255, 0.5); 
-            margin-bottom: 30px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08); 
+        .logo-v1 .text-box {
+            display: flex;
+            flex-direction: column;
             text-align: left;
-        }
-
-        .benefit-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 18px;
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: #222;
-        }
-        .benefit-item:last-child { margin-bottom: 0; }
-        
-        .benefit-icon {
-            width: 36px;
-            height: 36px;
-            background: rgba(229, 9, 20, 0.1);
-            color: var(--accent-red);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
             justify-content: center;
-            margin-right: 15px;
-            font-size: 1rem;
-            flex-shrink: 0;
         }
-
-        /* Animação decorativa para mostrar o áudio tocando */
-        .mini-waveform {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 3px;
-            height: 15px;
-            margin-top: 25px;
-            margin-bottom: 5px;
-        }
-        .mini-bar {
-            width: 3px;
-            border-radius: 2px;
-            background: var(--accent-red);
-            animation: bounce 1s infinite alternate ease-in-out;
-        }
-        .mini-bar:nth-child(1) { height: 60%; animation-delay: 0.1s; }
-        .mini-bar:nth-child(2) { height: 100%; animation-delay: 0.3s; }
-        .mini-bar:nth-child(3) { height: 40%; animation-delay: 0.0s; }
-        .mini-bar:nth-child(4) { height: 80%; animation-delay: 0.4s; }
-        .mini-bar:nth-child(5) { height: 50%; animation-delay: 0.2s; }
-        
-        @keyframes bounce {
-            0% { height: 30%; }
-            100% { height: 100%; }
-        }
-
-        .preview-text {
-            text-align: center;
-            font-size: 0.75rem;
-            color: var(--text-light);
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* --- BOTÃO CTA (WhatsApp) --- */
-        .btn-cta {
-            display: block;
-            width: 100%;
-            padding: 18px;
-            background: #25D366; 
-            color: #111;
-            text-decoration: none;
-            border: none;
-            border-radius: 16px;
+        .logo-v1 .main-text {
             font-weight: 800;
-            font-size: 1.05rem;
-            font-family: 'Poppins', sans-serif;
-            cursor: pointer;
-            transition: all 0.3s;
-            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
-            animation: pulse-btn 2s infinite;
+            font-size: 1.15rem;
+            line-height: 1.1;
+            letter-spacing: -0.5px;
         }
-        
-        @keyframes pulse-btn {
-            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); }
-            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
-        }
-
-        .btn-cta i { margin-right: 8px; font-size: 1.3rem; }
-        .btn-cta:hover { background: #20b858; transform: translateY(-3px); }
-        .btn-cta:active { transform: scale(0.98); }
-
-        .disclaimer {
-            font-size: 0.75rem;
-            color: #666;
-            margin-top: 15px;
+        .logo-v1 .sub-text {
             font-weight: 600;
+            font-size: 0.7rem;
+            color: #25D366; /* Verde */
+            letter-spacing: 1.5px;
         }
-        .disclaimer i { color: var(--accent-red); }
 
-        footer { padding: 20px; text-align: center; font-size: 0.7rem; color: #778890; flex-shrink: 0; }
+        /* =========================================
+           OPÇÃO 2: Estilo Cinema (Hierarquia)
+           "DOSE DIÁRIA" grande, "DE MOTIVAÇÃO" bem espaçado
+        ========================================= */
+        .logo-v2 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-transform: uppercase;
+        }
+        .logo-v2 .main {
+            font-weight: 900;
+            font-size: 1.8rem;
+            color: #111111;
+            letter-spacing: -1px;
+            line-height: 1;
+        }
+        .logo-v2 .main span { color: #E50914; }
+        .logo-v2 .sub {
+            font-weight: 600;
+            font-size: 0.65rem;
+            color: #555555;
+            letter-spacing: 5px; /* Espaçamento largo elegante */
+            margin-top: 4px;
+            margin-right: -5px; /* Compensa o tracking */
+        }
+
+        /* =========================================
+           OPÇÃO 3: Ícone de Aplicativo (Apenas DDM)
+           Focado puramente nas iniciais como um "App"
+        ========================================= */
+        .logo-v3 {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #111111;
+            color: #FFFFFF;
+            width: 75px;
+            height: 75px;
+            border-radius: 18px;
+            font-weight: 900;
+            font-size: 2rem;
+            letter-spacing: -1px;
+            position: relative;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+        .logo-v3 span { color: #E50914; }
+        .logo-v3 .dot {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            width: 18px;
+            height: 18px;
+            background: #25D366; /* Notificação Verde */
+            border-radius: 50%;
+            border: 4px solid #FFFFFF;
+        }
+
+        /* =========================================
+           OPÇÃO 4: Iniciais + Frequência Sonora
+           D |ondas| D | M
+        ========================================= */
+        .logo-v4 {
+            display: flex;
+            align-items: center;
+            font-weight: 900;
+            font-size: 2.2rem;
+            color: #111111;
+            letter-spacing: -2px;
+        }
+        .logo-v4 .wave {
+            display: flex;
+            gap: 3px;
+            margin: 0 8px;
+            height: 24px;
+            align-items: center;
+        }
+        .logo-v4 .bar { width: 5px; background: #E50914; border-radius: 3px; }
+        .logo-v4 .bar:nth-child(1) { height: 12px; }
+        .logo-v4 .bar:nth-child(2) { height: 24px; background: #25D366; }
+        .logo-v4 .bar:nth-child(3) { height: 16px; }
+        .logo-v4 .m { color: #888888; } /* O "M" de motivação mais discreto */
+
+        /* =========================================
+           OPÇÃO 5: Selo de Autoridade (Carimbo)
+           Passa muita credibilidade e visual de "Marca Registrada"
+        ========================================= */
+        .logo-v5 {
+            border: 3px solid #111111;
+            padding: 8px 20px;
+            font-weight: 900;
+            text-transform: uppercase;
+            color: #111111;
+            display: inline-block;
+            position: relative;
+            border-radius: 4px;
+        }
+        .logo-v5 .main {
+            font-size: 1.5rem;
+            letter-spacing: -1px;
+        }
+        .logo-v5 .sub {
+            background: #E50914;
+            color: #FFFFFF;
+            font-size: 0.65rem;
+            padding: 2px 8px;
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap;
+            letter-spacing: 1.5px;
+            border-radius: 10px;
+        }
+
+        /* =========================================
+           OPÇÃO 6: Foco na Transformação
+           Deixa "DOSE DIÁRIA" pequeno e grita "MOTIVAÇÃO"
+        ========================================= */
+        .logo-v6 {
+            text-align: center;
+            font-weight: 900;
+            text-transform: uppercase;
+            line-height: 0.9;
+            color: #111111;
+        }
+        .logo-v6 .dd {
+            font-size: 0.9rem;
+            color: #E50914;
+            letter-spacing: 3px;
+            margin-bottom: 5px;
+            display: block;
+        }
+        .logo-v6 .mot {
+            font-size: 2.2rem;
+            letter-spacing: -1.5px;
+        }
+        .logo-v6 .dot { color: #25D366; }
 
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="logo">DoseDiária<span>.</span></div>
-    </header>
-
-    <main class="app-container">
-        
-        <section class="screen">
-            
-            <span class="badge">🔴 Canal Vip Gratuito</span>
-            
-            <h1>Sua mentalidade blindada em 1 minuto por dia.</h1>
-            <p class="desc">Junte-se ao canal e receba todas as manhãs mini-documentários em áudio sobre as maiores lendas do esporte, negócios e liderança.</p>
-
-            <div class="glass-card">
-                <div class="benefit-item">
-                    <div class="benefit-icon"><i class="fas fa-headphones-alt"></i></div>
-                    Áudios imersivos de alta retenção
-                </div>
-                <div class="benefit-item">
-                    <div class="benefit-icon"><i class="fas fa-brain"></i></div>
-                    Motivação baseada em histórias reais
-                </div>
-                <div class="benefit-item">
-                    <div class="benefit-icon"><i class="fab fa-whatsapp"></i></div>
-                    Direto no seu celular. Sem spam.
-                </div>
-
-                <!-- Elemento visual para simular o áudio -->
-                <div class="mini-waveform">
-                    <div class="mini-bar"></div><div class="mini-bar"></div><div class="mini-bar"></div>
-                    <div class="mini-bar"></div><div class="mini-bar"></div><div class="mini-bar"></div>
-                    <div class="mini-bar"></div><div class="mini-bar"></div><div class="mini-bar"></div>
-                </div>
-                <div class="preview-text">Formato 100% em Áudio</div>
+    <div class="card">
+        <div class="card-title">Opção 1: Monograma em Bloco</div>
+        <div class="logo-v1">
+            <div class="dd">DD</div>
+            <div class="text-box">
+                <div class="main-text">DOSE DIÁRIA</div>
+                <div class="sub-text">DE MOTIVAÇÃO</div>
             </div>
+        </div>
+    </div>
 
-            <!-- BOTÃO DE REDIRECIONAMENTO PARA O GRUPO/CANAL -->
-            <a href="https://chat.whatsapp.com/SEU_LINK_AQUI" id="btn-entrar" class="btn-cta">
-                <i class="fab fa-whatsapp"></i> Quero minha Dose Diária
-            </a>
+    <div class="card">
+        <div class="card-title">Opção 2: Estilo Cinema</div>
+        <div class="logo-v2">
+            <div class="main">DOSE<span>DIÁRIA</span></div>
+            <div class="sub">DE MOTIVAÇÃO</div>
+        </div>
+    </div>
 
-            <div class="disclaimer">
-                <i class="fas fa-lock"></i> Canal fechado. Apenas os administradores enviam mensagens.
+    <div class="card">
+        <div class="card-title">Opção 3: Ícone de Aplicativo (Siglas)</div>
+        <div class="logo-v3">
+            DD<span>M</span>
+            <div class="dot"></div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-title">Opção 4: Siglas + Frequência Sonora</div>
+        <div class="logo-v4">
+            D
+            <div class="wave">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
             </div>
+            D<span class="m">M</span>
+        </div>
+    </div>
 
-        </section>
+    <div class="card">
+        <div class="card-title">Opção 5: Selo de Autoridade</div>
+        <div class="logo-v5">
+            <div class="main">DOSE DIÁRIA</div>
+            <div class="sub">DE MOTIVAÇÃO</div>
+        </div>
+    </div>
 
-    </main>
+    <div class="card">
+        <div class="card-title">Opção 6: Foco na Transformação</div>
+        <div class="logo-v6">
+            <span class="dd">A SUA DOSE DIÁRIA DE</span>
+            <span class="mot">MOTIVAÇÃO<span class="dot">.</span></span>
+        </div>
+    </div>
 
-    <footer>
-        &copy; 2026 Dose Diária. Motivação de Alto Impacto.
-    </footer>
-
-    <script>
-        // ==========================================
-        // ÁREA DE CONFIGURAÇÃO (Altere o link abaixo)
-        // ==========================================
-        
-        // Coloque aqui o link de convite do seu Canal / Grupo do WhatsApp
-        const LINK_DO_CANAL = "https://whatsapp.com/channel/SEU_LINK_AQUI";
-        
-        // ==========================================
-
-        document.getElementById('btn-entrar').href = LINK_DO_CANAL;
-    </script>
 </body>
 </html>
