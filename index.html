@@ -4,22 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Ignite - Histórias que Mudam o Jogo</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
             /* Fundo WhatsApp mantido */
             --bg-body: #E5DDD5; 
             
-            /* Novo Card do Player: Cinza translúcido (Glassmorphism) */
-            --bg-card-blur: rgba(210, 215, 220, 0.65); 
-            
             --accent-red: #E50914; 
             --accent-hover: #ff1f2a;
             
             --text-main: #111111; 
-            --text-light: #556670; 
-            --border-color: rgba(255, 255, 255, 0.4); 
+            --text-light: #4a555c; 
             --radius-lg: 24px;
         }
 
@@ -38,22 +34,31 @@
             flex-direction: column;
         }
 
-        /* --- CABEÇALHO (Agora Vermelho com texto Preto) --- */
+        /* --- CABEÇALHO FLUTUANTE (Sem fundo, com sombra) --- */
         header {
             padding: 20px;
             text-align: center;
-            background: var(--accent-red);
+            background: transparent; /* Fundo removido */
             flex-shrink: 0; 
-            box-shadow: 0 4px 15px rgba(229, 9, 20, 0.3);
         }
-        .logo { font-weight: 800; letter-spacing: -1px; font-size: 1.4rem; text-transform: uppercase; color: #000000; }
-        .logo span { color: #FFFFFF; font-weight: 800; } /* Ponto final branco para dar charme */
+        .logo { 
+            font-weight: 800; 
+            letter-spacing: -1px; 
+            font-size: 1.5rem; 
+            text-transform: uppercase; 
+            color: #111111; 
+            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.12); /* Sombra discreta e elegante */
+        }
+        .logo span { 
+            color: var(--accent-red); 
+            font-weight: 800; 
+        }
 
         .app-container {
             flex: 1;
             display: flex;
             flex-direction: column;
-            padding: 40px 20px;
+            padding: 20px 20px 40px 20px;
         }
 
         .screen {
@@ -79,21 +84,31 @@
         }
 
         h1 { font-size: 1.5rem; margin-bottom: 12px; line-height: 1.3; font-weight: 800; }
-        .desc { color: var(--text-light); margin-bottom: 30px; font-size: 0.95rem; line-height: 1.5; font-weight: 600;}
+        
+        /* Citação: Fonte mais fina e em itálico */
+        .desc { 
+            color: var(--text-light); 
+            margin-bottom: 30px; 
+            font-size: 1.05rem; 
+            line-height: 1.5; 
+            font-weight: 300; /* Fonte fina */
+            font-style: italic; /* Itálico */
+            padding: 0 10px;
+        }
 
-        /* --- VISUALIZADOR (Com Fundo Fosco e Ondas Estáticas) --- */
+        /* --- VISUALIZADOR --- */
         .visualizer {
             width: 160px;
             height: 160px;
             background: #FFFFFF;
-            border: 2px solid #E0E0E0;
+            border: 2px solid rgba(255,255,255,0.6);
             border-radius: 50%;
             margin: 0 auto 30px;
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
             transition: all 0.3s ease;
         }
 
@@ -121,7 +136,7 @@
             100% { transform: scale(1.4); opacity: 0; }
         }
 
-        /* Novas Ondas de Áudio (Sempre visíveis, animam no Play) */
+        /* Ondas de Áudio */
         .waveform {
             display: flex;
             align-items: center;
@@ -138,14 +153,12 @@
             transition: height 0.2s ease;
         }
 
-        /* Tamanhos estáticos para não ficar vazio enquanto está pausado */
         .bar:nth-child(1) { height: 40%; }
         .bar:nth-child(2) { height: 80%; }
         .bar:nth-child(3) { height: 100%; }
         .bar:nth-child(4) { height: 60%; }
         .bar:nth-child(5) { height: 50%; }
 
-        /* Animação quando estiver tocando */
         .visualizer.playing .bar { animation: bounce 1s infinite alternate ease-in-out; }
         .visualizer.playing .bar:nth-child(1) { animation-delay: 0.1s; }
         .visualizer.playing .bar:nth-child(2) { animation-delay: 0.3s; }
@@ -158,22 +171,22 @@
             100% { height: 100%; }
         }
 
-        /* --- PLAYER CONTROLS (Efeito Blur Transparente) --- */
+        /* --- PLAYER CONTROLS (Efeito Glass/Vidro sem cinza) --- */
         .player-controls {
-            background: var(--bg-card-blur);
-            backdrop-filter: blur(12px); /* Desfoque do fundo do WhatsApp */
-            -webkit-backdrop-filter: blur(12px); /* Suporte para Safari/iOS */
+            background: rgba(255, 255, 255, 0.15); /* Branco bem transparente */
+            backdrop-filter: blur(16px); /* Desfoque forte do fundo */
+            -webkit-backdrop-filter: blur(16px); 
             padding: 25px;
             border-radius: var(--radius-lg);
-            border: 1px solid var(--border-color);
+            border: 1px solid rgba(255, 255, 255, 0.4); /* Borda fina clara (reflexo do vidro) */
             margin-bottom: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05); /* Sombra elegante flutuante */
         }
 
         .progress-container {
             width: 100%;
             height: 6px;
-            background: rgba(0,0,0,0.1); /* Barra de fundo translúcida */
+            background: rgba(0, 0, 0, 0.08); /* Fundo da barra */
             border-radius: 3px;
             margin-bottom: 15px;
             cursor: pointer;
@@ -191,7 +204,7 @@
             display: flex;
             justify-content: space-between;
             font-size: 0.75rem;
-            color: #333;
+            color: #222;
             margin-bottom: 25px;
             font-weight: 700;
         }
@@ -215,7 +228,7 @@
         .play-btn:hover { background: var(--accent-hover); transform: scale(1.05); }
         .play-btn:active { transform: scale(0.95); }
 
-        /* --- BOTÃO DE COMPARTILHAMENTO (CTA - Cópia Automática) --- */
+        /* --- BOTÃO DE COMPARTILHAMENTO --- */
         .cta-container {
             display: none; 
             animation: slideUp 0.5s ease forwards;
@@ -250,7 +263,7 @@
         .btn-share:hover { background: #20b858; transform: translateY(-2px); }
         .btn-share:active { transform: scale(0.98); }
 
-        footer { padding: 20px; text-align: center; font-size: 0.7rem; color: var(--text-light); flex-shrink: 0; }
+        footer { padding: 20px; text-align: center; font-size: 0.7rem; color: #778890; flex-shrink: 0; }
 
     </style>
 </head>
@@ -269,7 +282,6 @@
             <p class="desc" id="dom-context">...</p>
 
             <div class="visualizer" id="visualizer-wrapper">
-                <!-- Ondas de Áudio -->
                 <div class="waveform">
                     <div class="bar"></div>
                     <div class="bar"></div>
@@ -292,7 +304,7 @@
                 </button>
             </div>
 
-            <!-- Botão CTA (Copia o link para a área de transferência) -->
+            <!-- Botão CTA -->
             <div id="cta-container" class="cta-container">
                 <button id="dom-share-link" class="btn-share">
                     <i class="fab fa-whatsapp" id="share-icon"></i> <span id="share-text">Compartilhar Inspiração</span>
@@ -314,13 +326,12 @@
         const CONTEUDO_DIARIO = {
             temporada: "Temporada 1: Lendas do Esporte",
             episodio: "Ep 01: A Obsessão de Kobe Bryant",
-            contexto: "Descubra como uma decisão tomada às 4h da manhã forjou a mentalidade de um dos maiores atletas da história.",
             
-            // Link do áudio do dia (formato .mp3)
+            // Note que eu adicionei aspas ( " ) no começo e no fim do contexto para ficar com cara de citação!
+            contexto: '"A dor de hoje é a vitória de amanhã. Descubra como uma decisão tomada às 4h da manhã forjou a mentalidade de um dos maiores atletas da história."',
+            
             audioUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3", 
-            
-            // Link que será copiado quando a pessoa clicar em "Compartilhar Inspiração"
-            linkParaCopiar: "https://whatsapp.com/channel/0029VaLBvo14yltKMlZTK008"
+            linkParaCopiar: "https://seu-link-ignite.com/kobe-bryant-ep01"
         };
         // ==========================================
         // FIM DA ÁREA DE EDIÇÃO DIÁRIA
@@ -392,27 +403,22 @@
             }, 100);
         });
 
-        // FUNÇÃO DE CÓPIA DO LINK DE COMPARTILHAMENTO
         const shareBtn = document.getElementById('dom-share-link');
         const shareIcon = document.getElementById('share-icon');
         const shareText = document.getElementById('share-text');
 
         shareBtn.addEventListener('click', async () => {
             try {
-                // Copia o link externo para a área de transferência
                 await navigator.clipboard.writeText(CONTEUDO_DIARIO.linkParaCopiar);
                 
-                // Salva o estado original
                 const originalText = shareText.innerText;
                 const originalIcon = shareIcon.className;
                 
-                // Transição visual de sucesso (Fica Preto + Check)
                 shareBtn.style.background = '#111111';
                 shareBtn.style.color = '#FFFFFF';
                 shareIcon.className = 'fas fa-check';
                 shareText.innerText = 'Link Copiado!';
                 
-                // Volta ao normal após 3 segundos
                 setTimeout(() => {
                     shareBtn.style.background = '#25D366';
                     shareBtn.style.color = '#111111';
