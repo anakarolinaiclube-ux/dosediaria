@@ -1,7 +1,7 @@
 {
-  "name": "respira-protocolo-dia1",
+  "name": "dose-motivacao-app",
   "version": "1.0.0",
-  "description": "Micro SaaS - Protocolo Dia 1 Plataforma Respira",
+  "description": "Micro SaaS - Storytelling e Motivação Diária",
   "main": "api/ai.js",
   "scripts": {
     "start": "serve ."
