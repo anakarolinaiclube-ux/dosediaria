@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Novos Logos - Dose Diária de Motivação</title>
+    <title>Ícones DDM - Dose Diária de Motivação</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #E5DDD5; 
+            background-color: #E5DDD5; /* Fundo do seu site para simular o contraste */
+            background-image: url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png');
+            background-blend-mode: multiply;
             display: flex;
             flex-wrap: wrap;
             gap: 30px;
@@ -19,11 +21,11 @@
 
         .card {
             background: #FFFFFF;
-            padding: 40px;
+            padding: 30px;
             border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
             text-align: center;
-            width: 350px;
+            width: 300px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -32,246 +34,214 @@
 
         .card-title {
             font-size: 0.8rem;
-            color: #888;
+            color: #666;
             margin-bottom: 25px;
             text-transform: uppercase;
             letter-spacing: 1px;
-            font-weight: 600;
+            font-weight: 700;
         }
 
-        /* =========================================
-           OPÇÃO 1: Monograma em Bloco (DD + Texto)
-           Destaca a sigla "DD" gigante ao lado do texto
-        ========================================= */
-        .logo-v1 {
+        /* Base para todos os Ícones */
+        .app-icon {
+            width: 90px;
+            height: 90px;
+            background: #111111; /* Fundo Preto */
+            border-radius: 22px; /* Curvatura de App (iOS style) */
             display: flex;
-            align-items: center;
-            gap: 12px;
-            text-transform: uppercase;
-            color: #111111;
-        }
-        .logo-v1 .dd {
-            font-weight: 900;
-            font-size: 2.8rem;
-            line-height: 1;
-            color: #E50914; /* Vermelho */
-            letter-spacing: -3px;
-        }
-        .logo-v1 .text-box {
-            display: flex;
-            flex-direction: column;
-            text-align: left;
-            justify-content: center;
-        }
-        .logo-v1 .main-text {
-            font-weight: 800;
-            font-size: 1.15rem;
-            line-height: 1.1;
-            letter-spacing: -0.5px;
-        }
-        .logo-v1 .sub-text {
-            font-weight: 600;
-            font-size: 0.7rem;
-            color: #25D366; /* Verde */
-            letter-spacing: 1.5px;
-        }
-
-        /* =========================================
-           OPÇÃO 2: Estilo Cinema (Hierarquia)
-           "DOSE DIÁRIA" grande, "DE MOTIVAÇÃO" bem espaçado
-        ========================================= */
-        .logo-v2 {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-transform: uppercase;
-        }
-        .logo-v2 .main {
-            font-weight: 900;
-            font-size: 1.8rem;
-            color: #111111;
-            letter-spacing: -1px;
-            line-height: 1;
-        }
-        .logo-v2 .main span { color: #E50914; }
-        .logo-v2 .sub {
-            font-weight: 600;
-            font-size: 0.65rem;
-            color: #555555;
-            letter-spacing: 5px; /* Espaçamento largo elegante */
-            margin-top: 4px;
-            margin-right: -5px; /* Compensa o tracking */
-        }
-
-        /* =========================================
-           OPÇÃO 3: Ícone de Aplicativo (Apenas DDM)
-           Focado puramente nas iniciais como um "App"
-        ========================================= */
-        .logo-v3 {
-            display: inline-flex;
             align-items: center;
             justify-content: center;
-            background: #111111;
-            color: #FFFFFF;
-            width: 75px;
-            height: 75px;
-            border-radius: 18px;
-            font-weight: 900;
-            font-size: 2rem;
-            letter-spacing: -1px;
             position: relative;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-        }
-        .logo-v3 span { color: #E50914; }
-        .logo-v3 .dot {
-            position: absolute;
-            top: -5px;
-            right: -5px;
-            width: 18px;
-            height: 18px;
-            background: #25D366; /* Notificação Verde */
-            border-radius: 50%;
-            border: 4px solid #FFFFFF;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            color: #FFFFFF;
         }
 
         /* =========================================
-           OPÇÃO 4: Iniciais + Frequência Sonora
-           D |ondas| D | M
+           OPÇÃO 1: O Pedido Oficial (Raio no Fundo)
         ========================================= */
-        .logo-v4 {
-            display: flex;
-            align-items: center;
+        .icon-v1 .emoji-bg {
+            position: absolute;
+            font-size: 4rem;
+            opacity: 0.25; /* Translúcido para ficar no fundo */
+            z-index: 1;
+            transform: rotate(-10deg);
+        }
+        .icon-v1 .text {
+            position: relative;
+            z-index: 2;
             font-weight: 900;
             font-size: 2.2rem;
-            color: #111111;
-            letter-spacing: -2px;
-        }
-        .logo-v4 .wave {
-            display: flex;
-            gap: 3px;
-            margin: 0 8px;
-            height: 24px;
-            align-items: center;
-        }
-        .logo-v4 .bar { width: 5px; background: #E50914; border-radius: 3px; }
-        .logo-v4 .bar:nth-child(1) { height: 12px; }
-        .logo-v4 .bar:nth-child(2) { height: 24px; background: #25D366; }
-        .logo-v4 .bar:nth-child(3) { height: 16px; }
-        .logo-v4 .m { color: #888888; } /* O "M" de motivação mais discreto */
-
-        /* =========================================
-           OPÇÃO 5: Selo de Autoridade (Carimbo)
-           Passa muita credibilidade e visual de "Marca Registrada"
-        ========================================= */
-        .logo-v5 {
-            border: 3px solid #111111;
-            padding: 8px 20px;
-            font-weight: 900;
-            text-transform: uppercase;
-            color: #111111;
-            display: inline-block;
-            position: relative;
-            border-radius: 4px;
-        }
-        .logo-v5 .main {
-            font-size: 1.5rem;
             letter-spacing: -1px;
         }
-        .logo-v5 .sub {
-            background: #E50914;
-            color: #FFFFFF;
-            font-size: 0.65rem;
-            padding: 2px 8px;
+        .icon-v1 .text span { color: #E50914; } /* M vermelho */
+
+        /* =========================================
+           OPÇÃO 2: Energia Vermelha (Corte Dinâmico)
+           Tem uma faixa vermelha passando atrás
+        ========================================= */
+        .icon-v2 .slash {
             position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            white-space: nowrap;
-            letter-spacing: 1.5px;
-            border-radius: 10px;
+            width: 150%;
+            height: 40%;
+            background: #E50914;
+            transform: rotate(-35deg);
+            z-index: 1;
+        }
+        .icon-v2 .text {
+            position: relative;
+            z-index: 2;
+            font-weight: 900;
+            font-size: 2.3rem;
+            letter-spacing: -2px;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.5); /* Sombra para destacar do fundo */
         }
 
         /* =========================================
-           OPÇÃO 6: Foco na Transformação
-           Deixa "DOSE DIÁRIA" pequeno e grita "MOTIVAÇÃO"
+           OPÇÃO 3: Fundo de Ondas Sonoras
+           Ondas vermelhas bem discretas ao fundo
         ========================================= */
-        .logo-v6 {
-            text-align: center;
+        .icon-v3 .waves-bg {
+            position: absolute;
+            display: flex;
+            gap: 4px;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            opacity: 0.3;
+        }
+        .icon-v3 .bar { width: 6px; background: #E50914; border-radius: 3px; }
+        .icon-v3 .bar:nth-child(1) { height: 30%; }
+        .icon-v3 .bar:nth-child(2) { height: 70%; }
+        .icon-v3 .bar:nth-child(3) { height: 100%; }
+        .icon-v3 .bar:nth-child(4) { height: 50%; }
+        .icon-v3 .bar:nth-child(5) { height: 80%; }
+        
+        .icon-v3 .text {
+            position: relative;
+            z-index: 2;
             font-weight: 900;
-            text-transform: uppercase;
-            line-height: 0.9;
-            color: #111111;
-        }
-        .logo-v6 .dd {
-            font-size: 0.9rem;
-            color: #E50914;
-            letter-spacing: 3px;
-            margin-bottom: 5px;
-            display: block;
-        }
-        .logo-v6 .mot {
             font-size: 2.2rem;
             letter-spacing: -1.5px;
         }
-        .logo-v6 .dot { color: #25D366; }
+
+        /* =========================================
+           OPÇÃO 4: Minimalista com Ponto Verde
+           Lembra a gravação de áudio do WhatsApp
+        ========================================= */
+        .icon-v4 .text {
+            font-weight: 900;
+            font-size: 2.2rem;
+            letter-spacing: -2px;
+            display: flex;
+            align-items: center;
+            gap: 2px;
+        }
+        .icon-v4 .text span { color: #E50914; }
+        .icon-v4 .mic-dot {
+            width: 10px;
+            height: 10px;
+            background: #25D366; /* Verde WhatsApp */
+            border-radius: 50%;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(37, 211, 102, 0.6);
+            animation: rec-pulse 1.5s infinite alternate;
+        }
+        @keyframes rec-pulse {
+            0% { opacity: 0.4; }
+            100% { opacity: 1; }
+        }
+
+        /* =========================================
+           OPÇÃO 5: Contorno Vazio (Outline Moderno)
+           "DD" contornado em branco, "M" sólido vermelho
+        ========================================= */
+        .icon-v5 .text {
+            font-weight: 900;
+            font-size: 2.4rem;
+            letter-spacing: -1px;
+            display: flex;
+        }
+        .icon-v5 .outline {
+            color: transparent;
+            -webkit-text-stroke: 1.5px #FFFFFF;
+        }
+        .icon-v5 .solid {
+            color: #E50914;
+        }
+
+        /* =========================================
+           OPÇÃO 6: Glow Vermelho (Brilho Neon)
+           Fundo preto, mas a caixa "acende" em vermelho
+        ========================================= */
+        .app-icon.icon-v6 {
+            box-shadow: 0 0 30px rgba(229, 9, 20, 0.4); /* Efeito Neon */
+            border: 1px solid rgba(229, 9, 20, 0.3);
+        }
+        .icon-v6 .text {
+            font-weight: 900;
+            font-size: 2.4rem;
+            letter-spacing: -2px;
+        }
+        .icon-v6 .text span { color: #E50914; }
 
     </style>
 </head>
 <body>
 
+    <!-- OPÇÃO 1 -->
     <div class="card">
-        <div class="card-title">Opção 1: Monograma em Bloco</div>
-        <div class="logo-v1">
-            <div class="dd">DD</div>
-            <div class="text-box">
-                <div class="main-text">DOSE DIÁRIA</div>
-                <div class="sub-text">DE MOTIVAÇÃO</div>
+        <div class="card-title">Opção 1: Raio no Fundo</div>
+        <div class="app-icon icon-v1">
+            <div class="emoji-bg">⚡</div>
+            <div class="text">DD<span>M</span></div>
+        </div>
+    </div>
+
+    <!-- OPÇÃO 2 -->
+    <div class="card">
+        <div class="card-title">Opção 2: Energia em Corte</div>
+        <div class="app-icon icon-v2">
+            <div class="slash"></div>
+            <div class="text">DDM</div>
+        </div>
+    </div>
+
+    <!-- OPÇÃO 3 -->
+    <div class="card">
+        <div class="card-title">Opção 3: Áudio Oculto</div>
+        <div class="app-icon icon-v3">
+            <div class="waves-bg">
+                <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+            </div>
+            <div class="text">DDM</div>
+        </div>
+    </div>
+
+    <!-- OPÇÃO 4 -->
+    <div class="card">
+        <div class="card-title">Opção 4: Ponto de Gravação (Verde)</div>
+        <div class="app-icon icon-v4">
+            <div class="text">DD<span>M</span> <div class="mic-dot"></div></div>
+        </div>
+    </div>
+
+    <!-- OPÇÃO 5 -->
+    <div class="card">
+        <div class="card-title">Opção 5: Contorno Moderno</div>
+        <div class="app-icon icon-v5">
+            <div class="text">
+                <span class="outline">DD</span><span class="solid">M</span>
             </div>
         </div>
     </div>
 
+    <!-- OPÇÃO 6 -->
     <div class="card">
-        <div class="card-title">Opção 2: Estilo Cinema</div>
-        <div class="logo-v2">
-            <div class="main">DOSE<span>DIÁRIA</span></div>
-            <div class="sub">DE MOTIVAÇÃO</div>
-        </div>
-    </div>
-
-    <div class="card">
-        <div class="card-title">Opção 3: Ícone de Aplicativo (Siglas)</div>
-        <div class="logo-v3">
-            DD<span>M</span>
-            <div class="dot"></div>
-        </div>
-    </div>
-
-    <div class="card">
-        <div class="card-title">Opção 4: Siglas + Frequência Sonora</div>
-        <div class="logo-v4">
-            D
-            <div class="wave">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
-            </div>
-            D<span class="m">M</span>
-        </div>
-    </div>
-
-    <div class="card">
-        <div class="card-title">Opção 5: Selo de Autoridade</div>
-        <div class="logo-v5">
-            <div class="main">DOSE DIÁRIA</div>
-            <div class="sub">DE MOTIVAÇÃO</div>
-        </div>
-    </div>
-
-    <div class="card">
-        <div class="card-title">Opção 6: Foco na Transformação</div>
-        <div class="logo-v6">
-            <span class="dd">A SUA DOSE DIÁRIA DE</span>
-            <span class="mot">MOTIVAÇÃO<span class="dot">.</span></span>
+        <div class="card-title">Opção 6: Glow Ignite</div>
+        <div class="app-icon icon-v6">
+            <div class="text">DD<span>M</span></div>
         </div>
     </div>
 
