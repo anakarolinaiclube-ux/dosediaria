@@ -2,248 +2,283 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ícones DDM - Dose Diária de Motivação</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Dose Diária - Histórias que Mudam o Jogo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
+        :root {
+            /* Fundo WhatsApp mantido */
+            --bg-body: #E5DDD5; 
+            --accent-red: #E50914; 
+            --accent-hover: #ff1f2a;
+            --text-main: #111111; 
+            --text-light: #4a555c; 
+            --radius-lg: 24px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #E5DDD5; /* Fundo do seu site para simular o contraste */
+            background-color: var(--bg-body);
             background-image: url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png');
-            background-blend-mode: multiply;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            padding: 40px;
-            justify-content: center;
-        }
-
-        .card {
-            background: #FFFFFF;
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            text-align: center;
-            width: 300px;
+            background-repeat: repeat;
+            background-attachment: fixed;
+            color: var(--text-main);
+            min-height: 100vh;
+            min-height: 100dvh; 
             display: flex;
             flex-direction: column;
-            align-items: center;
+        }
+
+        /* --- CABEÇALHO FLUTUANTE --- */
+        header {
+            padding: 20px;
+            text-align: center;
+            background: transparent; 
+            flex-shrink: 0; 
+        }
+        .logo { 
+            font-weight: 800; 
+            letter-spacing: -1px; 
+            font-size: 1.6rem; 
+            text-transform: uppercase; 
+            color: #111111; 
+            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+        }
+        .logo span { 
+            color: var(--accent-red); 
+            font-weight: 800; 
+        }
+
+        .app-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 10px 20px 40px 20px;
             justify-content: center;
         }
 
-        .card-title {
-            font-size: 0.8rem;
-            color: #666;
-            margin-bottom: 25px;
+        .screen {
+            width: 100%;
+            max-width: 420px;
+            text-align: center;
+            margin: auto; 
+        }
+
+        /* --- TEXTOS DA LANDING PAGE --- */
+        .badge {
+            display: inline-block;
+            padding: 6px 16px;
+            background: rgba(229, 9, 20, 0.1);
+            color: var(--accent-red);
+            border: 1px solid rgba(229, 9, 20, 0.3);
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 10px rgba(229, 9, 20, 0.05);
+        }
+
+        h1 { 
+            font-size: 1.6rem; 
+            margin-bottom: 15px; 
+            line-height: 1.25; 
+            font-weight: 800; 
+        }
+        
+        .desc { 
+            color: var(--text-light); 
+            margin-bottom: 30px; 
+            font-size: 1.05rem; 
+            line-height: 1.5; 
+            font-weight: 400; 
+            padding: 0 5px;
+        }
+
+        /* --- CARD DE BENEFÍCIOS (Glassmorphism) --- */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.15); 
+            backdrop-filter: blur(16px); 
+            -webkit-backdrop-filter: blur(16px); 
+            padding: 30px 25px;
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(255, 255, 255, 0.5); 
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08); 
+            text-align: left;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 18px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #222;
+        }
+        .benefit-item:last-child { margin-bottom: 0; }
+        
+        .benefit-icon {
+            width: 36px;
+            height: 36px;
+            background: rgba(229, 9, 20, 0.1);
+            color: var(--accent-red);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        /* Animação decorativa para mostrar o áudio tocando */
+        .mini-waveform {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 3px;
+            height: 15px;
+            margin-top: 25px;
+            margin-bottom: 5px;
+        }
+        .mini-bar {
+            width: 3px;
+            border-radius: 2px;
+            background: var(--accent-red);
+            animation: bounce 1s infinite alternate ease-in-out;
+        }
+        .mini-bar:nth-child(1) { height: 60%; animation-delay: 0.1s; }
+        .mini-bar:nth-child(2) { height: 100%; animation-delay: 0.3s; }
+        .mini-bar:nth-child(3) { height: 40%; animation-delay: 0.0s; }
+        .mini-bar:nth-child(4) { height: 80%; animation-delay: 0.4s; }
+        .mini-bar:nth-child(5) { height: 50%; animation-delay: 0.2s; }
+        
+        @keyframes bounce {
+            0% { height: 30%; }
+            100% { height: 100%; }
+        }
+
+        .preview-text {
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--text-light);
+            font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1px;
-            font-weight: 700;
         }
 
-        /* Base para todos os Ícones */
-        .app-icon {
-            width: 90px;
-            height: 90px;
-            background: #111111; /* Fundo Preto */
-            border-radius: 22px; /* Curvatura de App (iOS style) */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-            color: #FFFFFF;
-        }
-
-        /* =========================================
-           OPÇÃO 1: O Pedido Oficial (Raio no Fundo)
-        ========================================= */
-        .icon-v1 .emoji-bg {
-            position: absolute;
-            font-size: 4rem;
-            opacity: 0.25; /* Translúcido para ficar no fundo */
-            z-index: 1;
-            transform: rotate(-10deg);
-        }
-        .icon-v1 .text {
-            position: relative;
-            z-index: 2;
-            font-weight: 900;
-            font-size: 2.2rem;
-            letter-spacing: -1px;
-        }
-        .icon-v1 .text span { color: #E50914; } /* M vermelho */
-
-        /* =========================================
-           OPÇÃO 2: Energia Vermelha (Corte Dinâmico)
-           Tem uma faixa vermelha passando atrás
-        ========================================= */
-        .icon-v2 .slash {
-            position: absolute;
-            width: 150%;
-            height: 40%;
-            background: #E50914;
-            transform: rotate(-35deg);
-            z-index: 1;
-        }
-        .icon-v2 .text {
-            position: relative;
-            z-index: 2;
-            font-weight: 900;
-            font-size: 2.3rem;
-            letter-spacing: -2px;
-            text-shadow: 0 4px 10px rgba(0,0,0,0.5); /* Sombra para destacar do fundo */
-        }
-
-        /* =========================================
-           OPÇÃO 3: Fundo de Ondas Sonoras
-           Ondas vermelhas bem discretas ao fundo
-        ========================================= */
-        .icon-v3 .waves-bg {
-            position: absolute;
-            display: flex;
-            gap: 4px;
-            align-items: center;
-            justify-content: center;
+        /* --- BOTÃO CTA (WhatsApp) --- */
+        .btn-cta {
+            display: block;
             width: 100%;
-            height: 100%;
-            z-index: 1;
-            opacity: 0.3;
+            padding: 18px;
+            background: #25D366; 
+            color: #111;
+            text-decoration: none;
+            border: none;
+            border-radius: 16px;
+            font-weight: 800;
+            font-size: 1.05rem;
+            font-family: 'Poppins', sans-serif;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+            animation: pulse-btn 2s infinite;
         }
-        .icon-v3 .bar { width: 6px; background: #E50914; border-radius: 3px; }
-        .icon-v3 .bar:nth-child(1) { height: 30%; }
-        .icon-v3 .bar:nth-child(2) { height: 70%; }
-        .icon-v3 .bar:nth-child(3) { height: 100%; }
-        .icon-v3 .bar:nth-child(4) { height: 50%; }
-        .icon-v3 .bar:nth-child(5) { height: 80%; }
         
-        .icon-v3 .text {
-            position: relative;
-            z-index: 2;
-            font-weight: 900;
-            font-size: 2.2rem;
-            letter-spacing: -1.5px;
+        @keyframes pulse-btn {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
         }
 
-        /* =========================================
-           OPÇÃO 4: Minimalista com Ponto Verde
-           Lembra a gravação de áudio do WhatsApp
-        ========================================= */
-        .icon-v4 .text {
-            font-weight: 900;
-            font-size: 2.2rem;
-            letter-spacing: -2px;
-            display: flex;
-            align-items: center;
-            gap: 2px;
-        }
-        .icon-v4 .text span { color: #E50914; }
-        .icon-v4 .mic-dot {
-            width: 10px;
-            height: 10px;
-            background: #25D366; /* Verde WhatsApp */
-            border-radius: 50%;
-            margin-bottom: 20px;
-            box-shadow: 0 0 10px rgba(37, 211, 102, 0.6);
-            animation: rec-pulse 1.5s infinite alternate;
-        }
-        @keyframes rec-pulse {
-            0% { opacity: 0.4; }
-            100% { opacity: 1; }
-        }
+        .btn-cta i { margin-right: 8px; font-size: 1.3rem; }
+        .btn-cta:hover { background: #20b858; transform: translateY(-3px); }
+        .btn-cta:active { transform: scale(0.98); }
 
-        /* =========================================
-           OPÇÃO 5: Contorno Vazio (Outline Moderno)
-           "DD" contornado em branco, "M" sólido vermelho
-        ========================================= */
-        .icon-v5 .text {
-            font-weight: 900;
-            font-size: 2.4rem;
-            letter-spacing: -1px;
-            display: flex;
+        .disclaimer {
+            font-size: 0.75rem;
+            color: #666;
+            margin-top: 15px;
+            font-weight: 600;
         }
-        .icon-v5 .outline {
-            color: transparent;
-            -webkit-text-stroke: 1.5px #FFFFFF;
-        }
-        .icon-v5 .solid {
-            color: #E50914;
-        }
+        .disclaimer i { color: var(--accent-red); }
 
-        /* =========================================
-           OPÇÃO 6: Glow Vermelho (Brilho Neon)
-           Fundo preto, mas a caixa "acende" em vermelho
-        ========================================= */
-        .app-icon.icon-v6 {
-            box-shadow: 0 0 30px rgba(229, 9, 20, 0.4); /* Efeito Neon */
-            border: 1px solid rgba(229, 9, 20, 0.3);
-        }
-        .icon-v6 .text {
-            font-weight: 900;
-            font-size: 2.4rem;
-            letter-spacing: -2px;
-        }
-        .icon-v6 .text span { color: #E50914; }
+        footer { padding: 20px; text-align: center; font-size: 0.7rem; color: #778890; flex-shrink: 0; }
 
     </style>
 </head>
 <body>
 
-    <!-- OPÇÃO 1 -->
-    <div class="card">
-        <div class="card-title">Opção 1: Raio no Fundo</div>
-        <div class="app-icon icon-v1">
-            <div class="emoji-bg">⚡</div>
-            <div class="text">DD<span>M</span></div>
-        </div>
-    </div>
+    <header>
+        <div class="logo">DoseDiária<span>.</span></div>
+    </header>
 
-    <!-- OPÇÃO 2 -->
-    <div class="card">
-        <div class="card-title">Opção 2: Energia em Corte</div>
-        <div class="app-icon icon-v2">
-            <div class="slash"></div>
-            <div class="text">DDM</div>
-        </div>
-    </div>
+    <main class="app-container">
+        
+        <section class="screen">
+            
+            <span class="badge">🔴 Canal Vip Gratuito</span>
+            
+            <h1>Sua mentalidade blindada em 1 minuto por dia.</h1>
+            <p class="desc">Junte-se ao canal e receba todas as manhãs mini-documentários em áudio sobre as maiores lendas do esporte, negócios e liderança.</p>
 
-    <!-- OPÇÃO 3 -->
-    <div class="card">
-        <div class="card-title">Opção 3: Áudio Oculto</div>
-        <div class="app-icon icon-v3">
-            <div class="waves-bg">
-                <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+            <div class="glass-card">
+                <div class="benefit-item">
+                    <div class="benefit-icon"><i class="fas fa-headphones-alt"></i></div>
+                    Áudios imersivos de alta retenção
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon"><i class="fas fa-brain"></i></div>
+                    Motivação baseada em histórias reais
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon"><i class="fab fa-whatsapp"></i></div>
+                    Direto no seu celular. Sem spam.
+                </div>
+
+                <!-- Elemento visual para simular o áudio -->
+                <div class="mini-waveform">
+                    <div class="mini-bar"></div><div class="mini-bar"></div><div class="mini-bar"></div>
+                    <div class="mini-bar"></div><div class="mini-bar"></div><div class="mini-bar"></div>
+                    <div class="mini-bar"></div><div class="mini-bar"></div><div class="mini-bar"></div>
+                </div>
+                <div class="preview-text">Formato 100% em Áudio</div>
             </div>
-            <div class="text">DDM</div>
-        </div>
-    </div>
 
-    <!-- OPÇÃO 4 -->
-    <div class="card">
-        <div class="card-title">Opção 4: Ponto de Gravação (Verde)</div>
-        <div class="app-icon icon-v4">
-            <div class="text">DD<span>M</span> <div class="mic-dot"></div></div>
-        </div>
-    </div>
+            <!-- BOTÃO DE REDIRECIONAMENTO PARA O GRUPO/CANAL -->
+            <a href="https://chat.whatsapp.com/SEU_LINK_AQUI" id="btn-entrar" class="btn-cta">
+                <i class="fab fa-whatsapp"></i> Quero minha Dose Diária
+            </a>
 
-    <!-- OPÇÃO 5 -->
-    <div class="card">
-        <div class="card-title">Opção 5: Contorno Moderno</div>
-        <div class="app-icon icon-v5">
-            <div class="text">
-                <span class="outline">DD</span><span class="solid">M</span>
+            <div class="disclaimer">
+                <i class="fas fa-lock"></i> Canal fechado. Apenas os administradores enviam mensagens.
             </div>
-        </div>
-    </div>
 
-    <!-- OPÇÃO 6 -->
-    <div class="card">
-        <div class="card-title">Opção 6: Glow Ignite</div>
-        <div class="app-icon icon-v6">
-            <div class="text">DD<span>M</span></div>
-        </div>
-    </div>
+        </section>
 
+    </main>
+
+    <footer>
+        &copy; 2026 Dose Diária. Motivação de Alto Impacto.
+    </footer>
+
+    <script>
+        // ==========================================
+        // ÁREA DE CONFIGURAÇÃO (Altere o link abaixo)
+        // ==========================================
+        
+        // Coloque aqui o link de convite do seu Canal / Grupo do WhatsApp
+        const LINK_DO_CANAL = "https://whatsapp.com/channel/SEU_LINK_AQUI";
+        
+        // ==========================================
+
+        document.getElementById('btn-entrar').href = LINK_DO_CANAL;
+    </script>
 </body>
 </html>
