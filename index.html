@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Dia 1: Quebrando a Rotina - Respira</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>Dose Diária | Motivação</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
-            --bg-body: #F5F4F0;
-            --bg-card: #FFFFFF;
-            --bg-dark: #111111;
-            --accent-gold: #C29B62;
-            --text-main: #111111;
-            --text-light: #5A5A58;
-            --border-color: #DCD7CD;
+            --bg-body: #0a0a0a;
+            --bg-card: #141414;
+            --bg-dark: #000000;
+            --accent-red: #E60000; /* Vermelho vibrante de alto impacto */
+            --text-main: #F5F5F5;
+            --text-light: #888888;
+            --border-color: #222222;
             --radius-lg: 24px;
         }
 
@@ -34,8 +34,8 @@
             padding: 20px;
             text-align: center;
         }
-        .logo { font-weight: 800; letter-spacing: -1px; font-size: 1.2rem; }
-        .logo span { color: var(--accent-gold); font-weight: 300; }
+        .logo { font-weight: 800; letter-spacing: -1px; font-size: 1.4rem; text-transform: uppercase; }
+        .logo span { color: var(--accent-red); font-weight: 800; }
 
         .app-container {
             flex: 1;
@@ -52,23 +52,25 @@
             transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .hidden { display: none; opacity: 0; transform: translateY(20px); }
+        .hidden { display: none !important; opacity: 0; transform: translateY(20px); }
         .active { display: block; opacity: 1; transform: translateY(0); }
 
         /* --- INTRO SCREEN --- */
         .badge {
             display: inline-block;
             padding: 6px 16px;
-            background: var(--bg-dark);
-            color: var(--accent-gold);
+            background: var(--bg-card);
+            color: var(--accent-red);
+            border: 1px solid var(--border-color);
             border-radius: 50px;
             font-size: 0.75rem;
             font-weight: 700;
             text-transform: uppercase;
             margin-bottom: 20px;
+            letter-spacing: 1px;
         }
 
-        h1 { font-size: 1.8rem; margin-bottom: 15px; line-height: 1.2; }
+        h1 { font-size: 1.8rem; margin-bottom: 15px; line-height: 1.2; font-weight: 800; }
         .desc { color: var(--text-light); margin-bottom: 30px; font-size: 0.95rem; }
 
         .meta-info {
@@ -78,78 +80,108 @@
             margin-bottom: 40px;
         }
         .meta-item { font-size: 0.85rem; font-weight: 600; color: var(--text-light); }
-        .meta-item i { color: var(--accent-gold); margin-right: 5px; }
+        .meta-item i { color: var(--accent-red); margin-right: 5px; }
 
         .input-group { margin-bottom: 20px; }
         input[type="text"] {
             width: 100%;
             padding: 18px;
+            background-color: var(--bg-card);
+            color: var(--text-main);
             border-radius: 16px;
             border: 1px solid var(--border-color);
             font-family: inherit;
             font-size: 1rem;
             outline: none;
-            transition: border-color 0.3s;
+            transition: border-color 0.3s, box-shadow 0.3s;
             text-align: center;
         }
-        input[type="text"]:focus { border-color: var(--accent-gold); }
+        input[type="text"]:focus { 
+            border-color: var(--accent-red); 
+            box-shadow: 0 0 15px rgba(230, 0, 0, 0.2);
+        }
 
         .btn-start {
             width: 100%;
             padding: 18px;
-            background: var(--bg-dark);
+            background: var(--accent-red);
             color: white;
             border: none;
             border-radius: 16px;
-            font-weight: 700;
-            font-size: 1rem;
+            font-weight: 800;
+            font-size: 1.1rem;
+            text-transform: uppercase;
             cursor: pointer;
-            transition: transform 0.2s;
+            transition: transform 0.2s, background 0.3s;
+            box-shadow: 0 10px 20px rgba(230, 0, 0, 0.2);
         }
         .btn-start:active { transform: scale(0.98); }
+        .btn-start:hover { background: #ff1a1a; }
 
         /* --- PLAYER SCREEN --- */
         .visualizer {
-            width: 200px;
-            height: 200px;
-            background: white;
+            width: 180px;
+            height: 180px;
+            background: var(--bg-card);
+            border: 2px solid var(--border-color);
             border-radius: 50%;
             margin: 0 auto 40px;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
             position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
-        .visualizer::before {
+        .visualizer.playing::before {
             content: '';
             position: absolute;
             width: 100%;
             height: 100%;
-            border: 2px solid var(--accent-gold);
+            border: 2px solid var(--accent-red);
             border-radius: 50%;
-            animation: pulse 3s infinite;
+            animation: pulse 1.5s infinite ease-out;
         }
 
         @keyframes pulse {
-            0% { transform: scale(1); opacity: 0.5; }
-            100% { transform: scale(1.4); opacity: 0; }
+            0% { transform: scale(1); opacity: 0.8; }
+            100% { transform: scale(1.5); opacity: 0; }
         }
 
-        .user-greeting { font-weight: 600; margin-bottom: 10px; }
-        .ai-quote { font-style: italic; color: var(--text-light); font-size: 0.9rem; margin-bottom: 40px; min-height: 2.7rem;}
+        /* Linha Eletrocardiograma */
+        .ecg-wave { width: 100px; height: 50px; }
+        .ecg-wave polyline {
+            fill: none;
+            stroke: var(--accent-red);
+            stroke-width: 3;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-dasharray: 300;
+            stroke-dashoffset: 300;
+        }
+        .visualizer.playing .ecg-wave polyline {
+            animation: dash 2.5s linear infinite;
+        }
+        @keyframes dash {
+            0% { stroke-dashoffset: 300; }
+            50% { stroke-dashoffset: 0; }
+            100% { stroke-dashoffset: -300; }
+        }
+
+        .user-greeting { font-weight: 800; margin-bottom: 10px; font-size: 1.2rem; }
+        .ai-quote { font-style: italic; color: var(--text-light); font-size: 0.95rem; margin-bottom: 30px; min-height: 2.7rem; padding: 0 10px;}
 
         .player-controls {
-            background: white;
+            background: var(--bg-card);
             padding: 30px;
             border-radius: var(--radius-lg);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
         .progress-container {
             width: 100%;
             height: 6px;
-            background: #EEE;
+            background: var(--border-color);
             border-radius: 3px;
             margin-bottom: 15px;
             cursor: pointer;
@@ -158,9 +190,10 @@
         .progress-bar {
             width: 0%;
             height: 100%;
-            background: var(--accent-gold);
+            background: var(--accent-red);
             border-radius: 3px;
             position: relative;
+            transition: width 0.1s linear;
         }
         .time-info {
             display: flex;
@@ -168,12 +201,13 @@
             font-size: 0.75rem;
             color: var(--text-light);
             margin-bottom: 25px;
+            font-weight: 600;
         }
 
         .play-btn {
             width: 65px;
             height: 65px;
-            background: var(--bg-dark);
+            background: var(--accent-red);
             color: white;
             border: none;
             border-radius: 50%;
@@ -183,47 +217,74 @@
             align-items: center;
             justify-content: center;
             margin: 0 auto;
+            transition: transform 0.2s, background 0.3s;
+            box-shadow: 0 8px 15px rgba(230, 0, 0, 0.3);
+        }
+        .play-btn:active { transform: scale(0.95); }
+        .play-btn:hover { background: #ff1a1a; }
+
+        /* --- CTA COMPARTILHAMENTO --- */
+        .cta-container {
+            margin-top: 25px;
+        }
+        .btn-share {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            padding: 16px;
+            background: transparent;
+            color: var(--text-main);
+            border: 2px solid var(--accent-red);
+            border-radius: 16px;
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
+            cursor: pointer;
             transition: background 0.3s;
         }
-        .play-btn:hover { background: var(--accent-gold); }
+        .btn-share:hover { background: rgba(230, 0, 0, 0.1); }
 
-        footer { padding: 20px; text-align: center; font-size: 0.7rem; color: #AAA; }
+        footer { padding: 20px; text-align: center; font-size: 0.7rem; color: #555; font-weight: 600; }
 
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo">RESPIRA<span>.</span></div>
+        <div class="logo">FIRE<span>CAST</span></div>
     </header>
 
     <main class="app-container">
         
         <!-- TELA 1: INTRO -->
         <section id="intro-screen" class="screen active">
-            <span class="badge">Dia 1</span>
-            <h1>Quebrando a Rotina</h1>
-            <p class="desc">Inicie a desprogramação dos gatilhos emocionais da nicotina no seu subconsciente.</p>
+            <span class="badge">Ativação Diária</span>
+            <h1>Aviso Importante.</h1>
+            <p class="desc">O áudio a seguir contém gatilhos de alto impacto. Ouça quando puder prestar 100% de atenção.</p>
             
             <div class="meta-info">
-                <span class="meta-item"><i class="far fa-clock"></i> 18 min</span>
-                <span class="meta-item"><i class="fas fa-wave-square"></i> Ondas Theta</span>
+                <span class="meta-item"><i class="fas fa-bolt"></i> Storytelling Viral</span>
+                <span class="meta-item"><i class="fas fa-headphones"></i> Use Fones</span>
             </div>
 
             <div class="input-group">
                 <input type="text" id="user-name" placeholder="Digite seu primeiro nome" autocomplete="off">
             </div>
-            <button class="btn-start" onclick="startSession()">Iniciar Sessão</button>
+            <button class="btn-start" onclick="startSession()">Ouvir Agora</button>
         </section>
 
         <!-- TELA 2: EXPERIÊNCIA -->
         <section id="experience-screen" class="screen hidden">
-            <div class="visualizer">
-                <i class="fas fa-leaf" style="font-size: 3rem; color: var(--accent-gold);"></i>
+            <div class="visualizer" id="visualizer-ring">
+                <svg class="ecg-wave" viewBox="0 0 100 50">
+                    <polyline points="0,25 20,25 30,10 40,40 50,25 60,15 70,30 80,25 100,25" />
+                </svg>
             </div>
             
             <h2 class="user-greeting" id="greeting-text">Iniciando...</h2>
-            <p class="ai-quote" id="ai-quote">"Prepare sua mente para a liberdade."</p>
+            <p class="ai-quote" id="ai-quote">"Carregando sua dose de realidade..."</p>
 
             <div class="player-controls">
                 <div class="progress-container" id="progress-container">
@@ -231,31 +292,53 @@
                 </div>
                 <div class="time-info">
                     <span id="current-time">00:00</span>
-                    <span id="total-time">18:00</span>
+                    <span id="total-time">--:--</span>
                 </div>
                 <button class="play-btn" id="play-pause">
                     <i class="fas fa-play" id="play-icon"></i>
                 </button>
+            </div>
+
+            <!-- CTA Exibido após o fim do áudio -->
+            <div class="cta-container hidden" id="cta-container">
+                <!-- Substitua o link abaixo pelo seu destino externo -->
+                <a href="https://seulinkexterno.com/compartilhar" target="_blank" class="btn-share">
+                    <i class="fas fa-share-alt"></i> Compartilhar com alguém
+                </a>
             </div>
         </section>
 
     </main>
 
     <footer>
-        &copy; 2026 Plataforma Respira. Áudio de Alta Fidelidade Mental.
+        &copy; 2026 Micro SaaS. Todos os direitos reservados.
     </footer>
 
     <script>
-        // Placeholder de áudio (substitua pelo seu link real .mp3)
-        const audio = new Audio('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3');
-        const totalDuration = 18 * 60; // 18 minutos em segundos
+        // --- CONFIGURAÇÃO DOS ÁUDIOS ---
+        // audio1 = Saudação personalizada (retornada via API)
+        // audio2 = Script motivacional principal fixo (Troque o link abaixo)
+        const audio1 = new Audio();
+        const audio2 = new Audio('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3'); 
+        
+        let currentAudio = null;
         let isPlaying = false;
+        let mainAudioEnded = false;
+
+        // --- ELEMENTOS DA UI ---
+        const playBtn = document.getElementById('play-pause');
+        const playIcon = document.getElementById('play-icon');
+        const progressBar = document.getElementById('progress-bar');
+        const currentTimeEl = document.getElementById('current-time');
+        const totalTimeEl = document.getElementById('total-time');
+        const visualizer = document.getElementById('visualizer-ring');
+        const ctaContainer = document.getElementById('cta-container');
 
         async function startSession() {
             const name = document.getElementById('user-name').value;
-            if (!name) return alert("Por favor, digite seu nome.");
+            if (!name) return alert("Por favor, informe como quer ser chamado.");
 
-            // Transição suave
+            // Troca de Tela
             document.getElementById('intro-screen').classList.remove('active');
             setTimeout(() => {
                 document.getElementById('intro-screen').style.display = 'none';
@@ -265,51 +348,100 @@
                 }, 50);
             }, 600);
 
-            document.getElementById('greeting-text').innerText = `Sessão de ${name}`;
-
-            // Chamada à API para personalizar (opcional, mas demonstra o fluxo Micro SaaS)
             try {
-                const response = await fetch(`/api/welcome?name=${name}`);
+                // Chamada à API
+                const response = await fetch(`/api/welcome?name=${encodeURIComponent(name)}`);
                 const data = await response.json();
-                document.getElementById('ai-quote').innerText = data.quote;
+                
+                document.getElementById('greeting-text').innerText = data.message;
+                document.getElementById('ai-quote').innerText = `"${data.quote}"`;
+
+                // Configura e dá Play no Primeiro Áudio (Saudação)
+                if(data.greetingAudioUrl) {
+                    audio1.src = data.greetingAudioUrl;
+                    currentAudio = audio1;
+                    togglePlay();
+                } else {
+                    // Pula direto pro áudio 2 caso não haja áudio 1
+                    currentAudio = audio2;
+                    togglePlay();
+                }
+
             } catch (e) {
-                console.log("Modo offline: usando frases padrão.");
+                console.log("Erro na API, indo pro modo fallback.");
+                document.getElementById('greeting-text').innerText = `Preste muita atenção, ${name}...`;
+                currentAudio = audio2;
+                togglePlay();
             }
         }
 
-        // Lógica do Player
-        const playBtn = document.getElementById('play-pause');
-        const playIcon = document.getElementById('play-icon');
-        const progressBar = document.getElementById('progress-bar');
-        const currentTimeEl = document.getElementById('current-time');
+        // --- LÓGICA DO PLAYER (Transição entre Áudio 1 e 2) ---
+        
+        audio1.onended = () => {
+            // Quando a saudação termina, o script principal de storytelling começa
+            currentAudio = audio2;
+            audio2.play();
+        };
 
-        playBtn.addEventListener('click', () => {
+        audio2.onended = () => {
+            // Fim da experiência
+            isPlaying = false;
+            mainAudioEnded = true;
+            playIcon.classList.replace('fa-pause', 'fa-play');
+            visualizer.classList.remove('playing');
+            
+            // Exibe o Botão de CTA para compartilhar
+            ctaContainer.classList.remove('hidden');
+        };
+
+        function togglePlay() {
+            if (!currentAudio) return;
+
             if (isPlaying) {
-                audio.pause();
+                currentAudio.pause();
                 playIcon.classList.replace('fa-pause', 'fa-play');
+                visualizer.classList.remove('playing');
             } else {
-                audio.play();
+                currentAudio.play();
                 playIcon.classList.replace('fa-play', 'fa-pause');
+                visualizer.classList.add('playing');
             }
             isPlaying = !isPlaying;
-        });
+        }
 
-        audio.addEventListener('timeupdate', () => {
-            const percent = (audio.currentTime / audio.duration) * 100;
-            progressBar.style.width = `${percent}%`;
+        playBtn.addEventListener('click', togglePlay);
+
+        // --- ATUALIZAÇÃO DA BARRA DE PROGRESSO ---
+        
+        function updateProgress(audioContext) {
+            // Atualiza a tela baseando-se no áudio ativo (1 ou 2)
+            if (currentAudio !== audioContext) return;
+
+            const percent = (audioContext.currentTime / audioContext.duration) * 100;
+            progressBar.style.width = `${percent || 0}%`;
             
-            // Formatar tempo
-            let mins = Math.floor(audio.currentTime / 60);
-            let secs = Math.floor(audio.currentTime % 60);
+            let mins = Math.floor(audioContext.currentTime / 60) || 0;
+            let secs = Math.floor(audioContext.currentTime % 60) || 0;
             currentTimeEl.innerText = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
-        });
 
-        // Simulação de clique na barra de progresso
+            if(audioContext.duration) {
+                let tMins = Math.floor(audioContext.duration / 60);
+                let tSecs = Math.floor(audioContext.duration % 60);
+                totalTimeEl.innerText = `${tMins.toString().padStart(2, '0')}:${tSecs.toString().padStart(2, '0')}`;
+            }
+        }
+
+        audio1.addEventListener('timeupdate', () => updateProgress(audio1));
+        audio2.addEventListener('timeupdate', () => updateProgress(audio2));
+        audio1.addEventListener('loadedmetadata', () => updateProgress(audio1));
+        audio2.addEventListener('loadedmetadata', () => updateProgress(audio2));
+
+        // Pular na linha do tempo
         document.getElementById('progress-container').addEventListener('click', (e) => {
+            if(!currentAudio) return;
             const width = e.currentTarget.clientWidth;
             const clickX = e.offsetX;
-            const duration = audio.duration;
-            audio.currentTime = (clickX / width) * duration;
+            currentAudio.currentTime = (clickX / width) * currentAudio.duration;
         });
 
     </script>
