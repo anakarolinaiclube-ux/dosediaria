@@ -8,27 +8,43 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
-            /* Paleta de Cores: Preto e Vermelho Vibrante */
-            --bg-body: #050505;
-            --bg-card: #121212;
-            --bg-dark: #000000;
+            /* --- PALETA ATUALIZADA: FUNDO WHATSAPP --- */
+            --bg-body: #E5DDD5; /* Bege clássico do fundo do WhatsApp */
+            --bg-card: #FFFFFF; /* Cartões brancos estilo "balão de mensagem" */
+            --bg-dark: #111111; /* Topo escuro mantido para a identidade Ignite */
             --accent-red: #E50914; 
             --accent-hover: #ff1f2a;
-            --text-main: #FFFFFF;
-            --text-light: #A0A0A0;
-            --border-color: #222222;
+            
+            /* Textos escuros para dar leitura no fundo claro */
+            --text-main: #111111; 
+            --text-light: #667781; /* Cinza oficial do texto secundário do WhatsApp */
+            --border-color: #D1D7DB; /* Borda sutil estilo WhatsApp */
             --radius-lg: 24px;
+
+            /* 
+            DICA: Se você preferir o fundo do WhatsApp MODO ESCURO, troque as variáveis acima por:
+            --bg-body: #0B141A;
+            --bg-card: #111B21;
+            --text-main: #E9EDEF;
+            --text-light: #8696A0;
+            --border-color: #222D34;
+            */
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
             font-family: 'Poppins', sans-serif;
+            
+            /* Aplicando a cor e a textura de rabiscos (doodles) do WhatsApp */
             background-color: var(--bg-body);
+            background-image: url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png');
+            background-repeat: repeat;
+            background-attachment: fixed;
+            
             color: var(--text-main);
-            /* Mudança: Permite que a tela cresça e role naturalmente */
             min-height: 100vh;
-            min-height: 100dvh; /* Otimizado para Safari/iOS */
+            min-height: 100dvh; 
             display: flex;
             flex-direction: column;
         }
@@ -39,7 +55,8 @@
             text-align: center;
             border-bottom: 1px solid var(--border-color);
             background: var(--bg-dark);
-            flex-shrink: 0; /* Impede o cabeçalho de encolher */
+            color: #FFFFFF; /* Força o texto branco no topo escuro */
+            flex-shrink: 0; 
         }
         .logo { font-weight: 800; letter-spacing: -1px; font-size: 1.4rem; text-transform: uppercase; }
         .logo span { color: var(--accent-red); font-weight: 800; }
@@ -55,7 +72,6 @@
             width: 100%;
             max-width: 420px;
             text-align: center;
-            /* Mudança vital: centraliza quando há espaço, mas permite rolagem sem cortar o topo */
             margin: auto; 
         }
 
@@ -89,13 +105,13 @@
             align-items: center;
             justify-content: center;
             position: relative;
-            box-shadow: 0 0 40px rgba(229, 9, 20, 0.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
             transition: all 0.3s ease;
         }
 
         .visualizer.playing {
             border-color: rgba(229, 9, 20, 0.5);
-            box-shadow: 0 0 60px rgba(229, 9, 20, 0.2);
+            box-shadow: 0 0 40px rgba(229, 9, 20, 0.15);
         }
 
         .visualizer::before {
@@ -146,12 +162,13 @@
             border-radius: var(--radius-lg);
             border: 1px solid var(--border-color);
             margin-bottom: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.03);
         }
 
         .progress-container {
             width: 100%;
             height: 6px;
-            background: #2a2a2a;
+            background: #EBEBEB; /* Ajustado para dar contraste no cartão branco */
             border-radius: 3px;
             margin-bottom: 15px;
             cursor: pointer;
@@ -188,14 +205,14 @@
             justify-content: center;
             margin: 0 auto;
             transition: all 0.3s;
-            box-shadow: 0 10px 20px rgba(229, 9, 20, 0.3);
+            box-shadow: 0 10px 20px rgba(229, 9, 20, 0.2);
         }
         .play-btn:hover { background: var(--accent-hover); transform: scale(1.05); }
         .play-btn:active { transform: scale(0.95); }
 
         /* --- BOTÃO DE COMPARTILHAMENTO (CTA) --- */
         .cta-container {
-            display: none; /* Oculta totalmente até ser ativado */
+            display: none; 
             animation: slideUp 0.5s ease forwards;
             margin-top: 15px;
         }
@@ -213,19 +230,20 @@
             display: block;
             width: 100%;
             padding: 16px;
-            background: #25D366; /* Verde WhatsApp */
+            background: #25D366; 
             color: #111;
             text-decoration: none;
             border-radius: 16px;
             font-weight: 800;
             font-size: 1rem;
             transition: transform 0.2s;
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2);
         }
         .btn-share i { margin-right: 8px; font-size: 1.2rem; }
         .btn-share:hover { background: #20b858; }
         .btn-share:active { transform: scale(0.98); }
 
-        footer { padding: 20px; text-align: center; font-size: 0.7rem; color: #555; flex-shrink: 0; }
+        footer { padding: 20px; text-align: center; font-size: 0.7rem; color: var(--text-light); flex-shrink: 0; }
 
     </style>
 </head>
@@ -288,26 +306,23 @@
             contexto: "Descubra como uma decisão tomada às 4h da manhã forjou a mentalidade de um dos maiores atletas da história.",
             
             // Link do áudio do dia (formato .mp3)
-            audioUrl: "https://raw.githubusercontent.com/anakarolinaiclube-ux/dosediaria/main/audio/respira.mp3", 
+            audioUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3", 
             
             // Link que o botão vai abrir ao final
-            linkCompartilhamento: "https://wa.me/?text=Acabei%20de%20ouvir%20o%20Episódio%20sobre%20Kobe%20Bryant%20no%20Ignite!%20Ouça%20também:%20[SEU_LINK_AQUI]"
+            linkCompartilhamento: "https://wa.me/?text=Acabei%20de%20ouvir%20o%20Episódio%20sobre%20Kobe%20Bryant%20no%20Ignite!%20Ouça%20também:%20[‎https://whatsapp.com/channel/0029VaLBvo14yltKMlZTK008]"
         };
         // ==========================================
         // FIM DA ÁREA DE EDIÇÃO DIÁRIA
         // ==========================================
 
-        // Preenchendo o HTML com os dados da Edição Diária
         document.getElementById('dom-season').innerText = CONTEUDO_DIARIO.temporada;
         document.getElementById('dom-episode').innerText = CONTEUDO_DIARIO.episodio;
         document.getElementById('dom-context').innerText = CONTEUDO_DIARIO.contexto;
         document.getElementById('dom-share-link').href = CONTEUDO_DIARIO.linkCompartilhamento;
 
-        // Configuração do Áudio
         const audio = new Audio(CONTEUDO_DIARIO.audioUrl);
         let isPlaying = false;
 
-        // Elementos do DOM
         const playBtn = document.getElementById('play-pause');
         const playIcon = document.getElementById('play-icon');
         const progressBar = document.getElementById('progress-bar');
@@ -316,14 +331,12 @@
         const visualizer = document.getElementById('visualizer-wrapper');
         const ctaContainer = document.getElementById('cta-container');
 
-        // Carregar o tempo total assim que o áudio carregar os metadados
         audio.addEventListener('loadedmetadata', () => {
             const mins = Math.floor(audio.duration / 60);
             const secs = Math.floor(audio.duration % 60);
             totalTimeEl.innerText = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
         });
 
-        // Ação de Play/Pause
         playBtn.addEventListener('click', () => {
             if (isPlaying) {
                 audio.pause();
@@ -339,19 +352,16 @@
             isPlaying = !isPlaying;
         });
 
-        // Atualizar barra de progresso
         audio.addEventListener('timeupdate', () => {
             if(isNaN(audio.duration)) return;
             const percent = (audio.currentTime / audio.duration) * 100;
             progressBar.style.width = `${percent}%`;
             
-            // Formatar tempo decorrido
             let mins = Math.floor(audio.currentTime / 60);
             let secs = Math.floor(audio.currentTime % 60);
             currentTimeEl.innerText = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
         });
 
-        // Simulação de clique na barra
         document.getElementById('progress-container').addEventListener('click', (e) => {
             if(isNaN(audio.duration)) return;
             const width = e.currentTarget.clientWidth;
@@ -360,14 +370,12 @@
             audio.currentTime = (clickX / width) * duration;
         });
 
-        // Evento: Quando o áudio chegar ao final, exibe o botão e desce a tela
         audio.addEventListener('ended', () => {
             isPlaying = false;
             playIcon.classList.replace('fa-pause', 'fa-play');
             playIcon.style.marginLeft = '5px';
             visualizer.classList.remove('playing');
             
-            // Exibe o botão e joga a tela para baixo para garantir que a pessoa veja
             ctaContainer.classList.add('show');
             setTimeout(() => {
                 window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
